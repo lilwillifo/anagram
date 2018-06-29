@@ -40,7 +40,7 @@ describe 'Anagrams API' do
     expect(response).to be_success
 
     list = JSON.parse(response.body)
-    expect(list[:anagrams].count).to eq(read.anagrams.count)
-    expect(list[:anagrams]).to eq(['read', 'dear'])
+    expect(list["anagrams"].count).to eq(read.anagrams.count)
+    expect(list["anagrams"]).to eq(['dare','dear'])
   end
 end

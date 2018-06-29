@@ -1,6 +1,14 @@
 class AnagramsController < ActionController::API
   def index
-    word = Word.find_by(text: params[:text])
-    render json: word.anagrams
+    if word
+      render json: {"anagrams": word.anagrams}
+    else
+      render json: {}
+    end
+  end
+
+  private
+  def word
+    Word.find_by(text: params[:text])
   end
 end
