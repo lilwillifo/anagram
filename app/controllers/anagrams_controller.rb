@@ -3,7 +3,7 @@ class AnagramsController < ActionController::API
     if word
       render json: {"anagrams": word.anagrams}
     else
-      render json: {}
+      render json: {"anagrams": []}
     end
   end
 
