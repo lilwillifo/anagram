@@ -17,7 +17,7 @@ class Word < ApplicationRecord
         all_anagrams[word.formatted_word] = [word.text]
       end
     end
-    all_anagrams
+    @all_anagrams ||= all_anagrams
   end
 
 

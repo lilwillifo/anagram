@@ -49,6 +49,5 @@ describe 'Anagrams API' do
     list = JSON.parse(response.body)
     expect(list["anagrams"].count).to eq(1)
     expect(list["anagrams"]).to eq(['dare'])
-
   end
 end
