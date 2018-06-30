@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180630192611) do
+ActiveRecord::Schema.define(version: 20180630195834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "anagrams", force: :cascade do |t|
     t.string "key"
-    t.text "words", default: [], array: true
   end
 
   create_table "words", force: :cascade do |t|
     t.string "text"
+    t.bigint "anagram_id"
+    t.index ["anagram_id"], name: "index_words_on_anagram_id"
   end
 
+  add_foreign_key "words", "anagrams"
 end

@@ -7,7 +7,7 @@ describe 'Anagrams API' do
     Word.create(text: 'dare')
     Word.create(text: 'pizza')
 
-    get "/anagrams/#{read.text}"
+    get "/anagrams/read"
     expect(response).to be_success
 
     list = JSON.parse(response.body)

@@ -12,11 +12,8 @@ describe Anagram, type: :model do
 
       expect(anagram.save).to eq(false)
     end
-    it 'has a list of words' do
-      anagram = Anagram.create(key: 'ader')
-      anagram.words = ["read", "dear", "dare"]
-      anagram.save
-      expect(anagram.words).to eq(["read", "dear", "dare"])
-    end
+  end
+  context 'relationships' do
+    it {should have_many :words}
   end
 end

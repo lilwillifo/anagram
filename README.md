@@ -23,7 +23,7 @@ The decision to use Rails instead of Sinatra was intentional. Rails is a fully f
 
 ## Postgres
 
-My focus here was on the user. The user wants an instantaneous result. I played around with  a word model that had a method to pull all anagrams for each word, but this was very inefficient. By seeding the database with the entire dictionary as a hash with all anagrams, queries to the API are nearly instant.
+My focus here was on the user. The user wants an instantaneous result. I played around with  a word model that had a method to pull all anagrams for each word, but this was very inefficient. Every time a word was added or deleted, the entire hash was being rebuilt. Not good! By seeding the database with the entire dictionary into an anagrams table with key and words attributes, queries to the API are nearly instant.
 
 ## Data Structure
 
