@@ -26,7 +26,8 @@ class WordsController < ActionController::API
 
   def add_words
     word_params.each do |word|
-      Word.create(text: word)
+      anagram = Anagram.find_or_create_by(key: word.downcase.chars.sort.join)
+      anagram.words.create(text: word)
     end
   end
 

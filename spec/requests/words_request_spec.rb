@@ -9,8 +9,10 @@ describe 'Words API' do
     expect(Word.count).to eq(params[:words].count)
   end
   it 'can delete a word and returns 204 status code' do
-    pizza = Word.create(text: 'pizza')
-    sorbet = Word.create(text: 'sorbet')
+    anagram_1 = Anagram.create(key: 'aipzz')
+    anagram_2 = Anagram.create(key: 'beorst')
+    pizza = anagram_1.words.create(text: 'pizza')
+    sorbet = anagram_2.words.create(text: 'sorbet')
 
     expect(Word.count).to eq(2)
 
@@ -24,8 +26,10 @@ describe 'Words API' do
     expect(response.status).to eq(404)
   end
   it 'can delete all words and returns 204' do
-    pizza = Word.create(text: 'pizza')
-    sorbet = Word.create(text: 'sorbet')
+    anagram_1 = Anagram.create(key: 'aipzz')
+    anagram_2 = Anagram.create(key: 'beorst')
+    pizza = anagram_1.words.create(text: 'pizza')
+    sorbet = anagram_2.words.create(text: 'sorbet')
 
     expect(Word.count).to eq(2)
 
@@ -35,8 +39,10 @@ describe 'Words API' do
     expect(Word.count).to eq(0)
   end
   it 'can delete all words multiple times' do
-    pizza = Word.create(text: 'pizza')
-    sorbet = Word.create(text: 'sorbet')
+    anagram_1 = Anagram.create(key: 'aipzz')
+    anagram_2 = Anagram.create(key: 'beorst')
+    pizza = anagram_1.words.create(text: 'pizza')
+    sorbet = anagram_2.words.create(text: 'sorbet')
 
     expect(Word.count).to eq(2)
 
