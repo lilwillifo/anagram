@@ -6,7 +6,7 @@ class AnagramsController < ActionController::API
   #
   # @return [JSON]
   def index
-    render json: {"anagrams": anagrams}
+    render json: {"anagrams": list}
   end
 
   private
@@ -18,7 +18,7 @@ class AnagramsController < ActionController::API
     Word.find_by(text: params[:text])
   end
 
-  def anagrams
+  def list
     if word
       check_limit
     else
@@ -28,9 +28,9 @@ class AnagramsController < ActionController::API
 
   def check_limit
     if params[:limit]
-      word.anagrams[0,params[:limit].to_i]
+      (word.anagram.words.pluck(:text) - [word.text])[0,params[:limit].to_i]
     else
-      word.anagrams
+      word.anagram.words.pluck(:text) - [word.text]
     end
   end
 end

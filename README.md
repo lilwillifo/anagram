@@ -27,7 +27,7 @@ My focus here was on the user. The user wants an instantaneous result. I played 
 
 ## Data Structure
 
-For speed, anagrams are stored in a hash. The keys consist of words (lowercase) alphabetized by letter. So `read`'s key would be `ader`. The value of the hash is an array of all anagrams in the dictionary. So notably, the keys themselves don't have to be words in the dictionary (and likely aren't), but the values consist only of words in the dictionary.
+There are two tables - words and anagrams. Words belong to anagrams. Anagram has a key, which is the alphabetized version of the anagrams (so, dear, read, and dare all have the key ader). An anagram has_many words. This allows for quicker searching, rather than loading the entire dictionary every time you want to check for anagrams. It also makes for DRY, readable code!
 
 ## Testing
 
