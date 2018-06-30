@@ -1,3 +1,7 @@
+# Controller for /words enpoints. Contains create and destroy categories
+#
+# @author Margaret Williford
+
 class WordsController < ActionController::API
   def create
     word_params.each do |word|

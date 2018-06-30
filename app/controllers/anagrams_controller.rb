@@ -1,4 +1,10 @@
+# Controller for /anagrams endpoints. Contains index that lists all anagrams for a
+# given word
+# @author Margaret Williford
 class AnagramsController < ActionController::API
+  # renders JSON of all associated anagrams within the dictionary for a given word.
+  #
+  # @return [JSON] 
   def index
     if word
       render json: {"anagrams": anagrams}
