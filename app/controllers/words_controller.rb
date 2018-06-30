@@ -7,9 +7,7 @@ class WordsController < ActionController::API
   #
   # @return [JSON]
   def create
-    word_params.each do |word|
-      Word.create(text: word)
-    end
+    add_words
     render json: Word.last, status: 201
   end
 
@@ -24,6 +22,12 @@ class WordsController < ActionController::API
 
   def word_params
     params.require(:words)
+  end
+
+  def add_words
+    word_params.each do |word|
+      Word.create(text: word)
+    end
   end
 
   def delete_words

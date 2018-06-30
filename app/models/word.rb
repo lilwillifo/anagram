@@ -35,5 +35,4 @@ class Word < ApplicationRecord
     @all_anagrams ||= build_anagrams
   end
 
-
 end
