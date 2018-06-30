@@ -1,4 +1,4 @@
-# Word class for words table. Has a text attribute and method to pull a word's anagrams
+# Word class for words table. Has a text attribute and belongs to an anagram key that is the word alphabetized by characters
 #
 # @author Margaret Williford
 # @abstract
