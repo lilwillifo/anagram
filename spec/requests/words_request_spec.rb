@@ -30,4 +30,20 @@ describe 'Words API' do
     expect(response.status).to eq(204)
     expect(Word.count).to eq(0)
   end
+  it 'can delete all words multiple times' do
+    pizza = Word.create(text: 'pizza')
+    sorbet = Word.create(text: 'sorbet')
+
+    expect(Word.count).to eq(2)
+
+    delete "/words"
+    delete "/words"
+
+    expect(response.status).to eq(204)
+    expect(Word.count).to eq(0)
+
+    delete "/words"
+    expect(response.status).to eq(204)
+    expect(Word.count).to eq(0)
+  end
 end
