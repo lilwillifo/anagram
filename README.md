@@ -29,6 +29,10 @@ My focus here was on the user. The user wants an instantaneous result. By seedin
 
 For speed, anagrams are stored in a hash. The keys consist of words (lowercase) alphabetized by letter. So `read`'s key would be `ader`. The value of the hash is an array of all anagrams in the dictionary. So notably, the keys themselves don't have to be words in the dictionary (and likely aren't), but the values consist only of words in the dictionary.
 
+## Testing
+
+I use testing to drive my implementation. I wrote RSpec tests to confirm happy path and used model testing for more detail. I added sad path testing where I thought there was a high probability of the issue happening, but there is always room to add to sad path testing. I tried to catch likely edge cases.
+
 # Creating this in your local environment
 
 ## Set Up, Testing
