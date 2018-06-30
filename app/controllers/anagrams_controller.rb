@@ -4,13 +4,9 @@
 class AnagramsController < ActionController::API
   # renders JSON of all associated anagrams within the dictionary for a given word.
   #
-  # @return [JSON] 
+  # @return [JSON]
   def index
-    if word
-      render json: {"anagrams": anagrams}
-    else
-      render json: {"anagrams": []}
-    end
+    render json: {"anagrams": anagrams}
   end
 
   private
@@ -23,6 +19,14 @@ class AnagramsController < ActionController::API
   end
 
   def anagrams
+    if word
+      check_limit
+    else
+      []
+    end
+  end
+
+  def check_limit
     if params[:limit]
       word.anagrams[0,params[:limit].to_i]
     else
