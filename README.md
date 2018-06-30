@@ -38,7 +38,7 @@ I use testing to drive my implementation. I wrote RSpec tests to confirm happy p
 ## Set Up, Testing
 
 1. Run `bundle` to install the dependencies
-2. `rake db:create`, `rake db:migrate` and (optionally) `rake db:seed`. Note that seeding the entire dictionary will take a very long time. It's there with the intent to run in production, which would run before users interact with the site and they wouldn't feel the long load time. The tests of the API functionality will work with or without the seeding.
+2. `rake db:create`, `rake db:migrate` and (optionally) `rake db:seed`. Note that seeding the entire dictionary will take a very long time. It's there with the intent to run in production, which would run before users interact with the site and they wouldn't feel the long load time. The tests of the API functionality will work with or without the seeding. Interacting with the API will be more fun once seeded though!
 3. `rails s` will serve up the API at `localhost:3000`.
 4. `ruby test/anagram_test.rb` to run Ibotta's test suite.
 
