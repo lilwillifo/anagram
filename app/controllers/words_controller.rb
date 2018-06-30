@@ -14,16 +14,10 @@ class WordsController < ActionController::API
   end
 
   # Removes a word(found by text params) from dictionary. It will no longer show up
-  # as an anagram for other words.
+  # as an anagram for other words. If you try to delete a word that does not exist, a 404 renders.
   # @return [status] shows the user a 204 status to confirm word was deleted.
   def destroy
-    if params[:text]
-      word = Word.find_by(text: params[:text])
-      Word.destroy(word.id)
-    else
-      Word.destroy_all
-    end
-      render status: 204
+    render status: status
   end
 
   private
@@ -32,4 +26,24 @@ class WordsController < ActionController::API
     params.require(:words)
   end
 
+  def delete_words
+    if params[:text]
+      Word.destroy(word.id)
+    else
+      Word.destroy_all
+    end
+  end
+
+  def word
+    Word.find_by(text: params[:text])
+  end
+
+  def status
+    if params[:text] && word.nil?
+      404
+    else
+      delete_words
+      204
+    end
+  end
 end

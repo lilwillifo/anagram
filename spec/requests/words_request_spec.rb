@@ -19,6 +19,10 @@ describe 'Words API' do
     expect(response.status).to eq(204)
     expect(Word.count).to eq(1)
   end
+  it 'cannot delete a word that does not exist' do
+    delete "/words/notaword"
+    expect(response.status).to eq(404)
+  end
   it 'can delete all words and returns 204' do
     pizza = Word.create(text: 'pizza')
     sorbet = Word.create(text: 'sorbet')
