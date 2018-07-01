@@ -1,16 +1,15 @@
 require 'rails_helper'
 
 describe Word, type: :model do
-  describe 'instance methods' do
-    context '.anagrams' do
-      it 'returns an array of a words anagrams' do
-        read = Word.create(text: 'read')
-        Word.create(text: 'dear')
-        Word.create(text: 'dare')
-        Word.create(text: 'pizza')
+  describe 'attributes' do
+    it 'has text' do
+      anagram = Anagram.create(key: 'ader')
+      word = anagram.words.create(text: 'read')
 
-        expect(read.anagrams).to eq(['dare', 'dear'])
-      end
+      expect(word.text).to eq('read')
     end
+  end
+  describe 'relationships' do
+    it { should belong_to(:anagram) }
   end
 end

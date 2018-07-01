@@ -6,19 +6,24 @@ class AnagramsController < ActionController::API
   #
   # @return [JSON]
   def index
-    render json: {"anagrams": anagrams}
+    render json: {"anagrams": list}
   end
 
   private
+
+  # allows user to pass text and limit parameters and no other params.
   def anagram_params
     params.permit(:text, :limit)
   end
 
+  # finds the word object associated with the text passed in params
   def word
     Word.find_by(text: params[:text])
   end
 
-  def anagrams
+  # Returns empty array if the word does not exist, otherwise moves to checking
+  # for limit
+  def list
     if word
       check_limit
     else
@@ -26,11 +31,18 @@ class AnagramsController < ActionController::API
     end
   end
 
+  # limits the result size if a limit param is passed
   def check_limit
     if params[:limit]
-      word.anagrams[0,params[:limit].to_i]
+      anagrams[0,params[:limit].to_i]
     else
-      word.anagrams
+      anagrams
     end
+  end
+
+  # Finds all words associated with the sorted key, and then removes the
+  # word itself because a word is not its own anagram by definition.
+  def anagrams
+    word.anagram.words.pluck(:text) - [word.text]
   end
 end
