@@ -8,7 +8,7 @@ class WordsController < ActionController::API
   # @return [JSON]
   def create
     add_words
-    render json: Word.last, status: 201
+    render status: 201
   end
 
   # Removes a word(found by text params) from dictionary. It will no longer show up
