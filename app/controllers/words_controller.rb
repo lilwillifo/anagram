@@ -39,7 +39,7 @@ class WordsController < ActionController::API
     if params[:text]
       Word.destroy(word.id)
     else
-      Word.destroy_all
+      Word.delete_all
     end
   end
 
