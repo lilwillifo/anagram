@@ -1,6 +1,5 @@
 # README
-<!-- - Limits on the length of words that can be stored or limits on the number of results that will be returned
-- Any edge cases you find while working on the project -->
+<!-- - Any edge cases you find while working on the project -->
 
 # Anagram Finder
 
@@ -17,7 +16,7 @@ This API is built in Ruby, utilizing Rails to render JSON data at each end point
 
 ## Sinatra vs. Rails
 
-The decision to use Rails instead of Sinatra was intentional. Rails is a fully featured MVC framework, and potentially overkill. I debated this before starting, and my understanding is most of Ibotta's codebase is in Rails, so I wanted to showcase my knowledge in this framework. Adding the --api flag makes the app a bit more lightweight. Additionally, I wanted to get to the meat of the project right away, rather than manually building the environment, tests and database configuration that Rails packages for me. I didn't see a need to reinvent the wheel here.
+Rails is a fully featured MVC framework, and potentially overkill. The decision to use Rails instead of Sinatra was intentional. I debated this before starting, and my understanding is most of Ibotta's codebase is in Rails, so I wanted to showcase my knowledge in this framework. Adding the --api flag makes the app more lightweight. Additionally, I wanted to get to the meat of the project right away, rather than manually building the environment, tests and database configuration that Rails packages for me. I didn't see a need to reinvent the wheel here.
 
 ## Postgres
 
@@ -44,12 +43,12 @@ I use testing to drive my implementation. I wrote RSpec tests to confirm happy p
 
 For get requests, you can pull up localhost:3000/anagrams/:word to find anagrams. For post and delete, you'll need to use your favorite tool to post HTTP requests to the API (I like [Postman](https://www.getpostman.com/)).
 
-- `POST /words.json`: Takes a JSON array of English-language words and adds them to the corpus (data store).
+- `POST /words.json`: Takes a JSON array of English-language words and adds them to the corpus (data store). Notably, there is no check that the word is in the dictionary. This is the wild, wild west. Post `lol`, `omg`, or even `alksjdghkwjerh` to the data store. Whatever makes you happy.
 - `GET /anagrams/:word.json`:
-  - Returns a JSON array of English-language words that are anagrams of the word passed in the URL.
-  - This endpoint should support an optional query param that indicates the maximum number of results to return.
-- `DELETE /words/:word.json`: Deletes a single word from the data store.
-- `DELETE /words.json`: Deletes all contents of the data store.
+  - Returns a JSON array of English-language words that are anagrams of the word passed in the URL. (One caveat: if you've posted fake words.... you'll then see that in your results. Seems fair.)
+  - This endpoint supports an optional query param (LIMIT) that indicates the maximum number of results to return. Push it to the limit!
+- `DELETE /words/:word.json`: Deletes a single word from the data store. Bye!
+- `DELETE /words.json`: Deletes all contents of the data store. Delete all the things!
 
 Example:
 
