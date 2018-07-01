@@ -4,5 +4,6 @@
 # @abstract
 # @attr [String] text: The string of the word
 class Word < ApplicationRecord
+  # the anagram it belongs to is an object with a key of sorted characters.
   belongs_to :anagram
 end

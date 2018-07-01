@@ -5,5 +5,7 @@
 class Anagram < ApplicationRecord
   validates_presence_of :key
   validates_uniqueness_of :key
+  # The key attribute is sorted text, and the associated words are all
+  # combinations of words from that key. 
   has_many :words
 end
