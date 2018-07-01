@@ -28,9 +28,13 @@ class AnagramsController < ActionController::API
 
   def check_limit
     if params[:limit]
-      (word.anagram.words.pluck(:text) - [word.text])[0,params[:limit].to_i]
+      anagrams[0,params[:limit].to_i]
     else
-      word.anagram.words.pluck(:text) - [word.text]
+      anagrams
     end
+  end
+
+  def anagrams
+    word.anagram.words.pluck(:text) - [word.text]
   end
 end
