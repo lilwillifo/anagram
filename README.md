@@ -1,5 +1,4 @@
 # README
-<!-- - Any edge cases you find while working on the project -->
 
 # Anagram Finder
 
