@@ -9,12 +9,6 @@ class Word < ApplicationRecord
 
   # Pulls together data on the entire word store.
   # @return [JSON] count, min, max, median, and average
-
-  # length of a word
-  def length
-    text.length
-  end
-
   def self.analytics
     {"count": count,
       "word_length":
