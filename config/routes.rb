@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   delete '/words', to: 'words#destroy'
 
   get '/anagrams/:text', to: 'anagrams#index'
+
+  get '/analytics', to: 'analytics#show'
 end
