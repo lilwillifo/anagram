@@ -89,6 +89,15 @@ HTTP/1.1 204 No Content
 # Fetch analytics on the words in the data store.
 $ curl -i http://localhost:3000/anagrams/analytics.json
 HTTP/1.1
+{
+count: 809,
+word_length: {
+  min: 1,
+  max: 20,
+  median: 9,
+  average: 8.737948084054388
+  }
+}
 ```
 
 # Features to add to the API
