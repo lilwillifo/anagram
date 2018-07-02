@@ -29,19 +29,28 @@ class Word < ApplicationRecord
 
   # finds the minimum word length
   def self.min
-    minimum(:text).length
+    lengths.sort.first
   end
 
   # finds the maximum word length
   def self.max
-    maximum(:text).length
+    lengths.sort.last
   end
 
   # finds the median word length by ordering text length and finding halfway value
   def self.median
+    lengths.sort[(count / 2)]
   end
 
   # finds average word length
   def self.average
+   lengths.sum / count.to_f
+  end
+
+  # returns an array of all word lengths
+  def self.lengths
+    pluck(:text).map do |word|
+      word.length
+    end
   end
 end

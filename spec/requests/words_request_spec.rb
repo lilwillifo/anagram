@@ -72,9 +72,9 @@ describe 'Words API' do
     data = JSON.parse(response.body)
 
     expect(data["count"]).to eq(5)
-    expect(data[:word_length]["min"]).to eq(5)
-    expect(data[:word_length]["max"]).to eq(5)
-    expect(data[:word_length]["median"]).to eq(5)
-    expect(data[:word_length]["average"]).to eq(5)
+    expect(data["word_length"]["min"]).to eq(4)
+    expect(data["word_length"]["max"]).to eq(6)
+    expect(data["word_length"]["median"]).to eq(4)
+    expect(data["word_length"]["average"]).to eq(4.6)
   end
 end

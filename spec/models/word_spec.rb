@@ -27,8 +27,8 @@ describe Word, type: :model do
         expect(Word.analytics[:count]).to eq(5)
         expect(Word.analytics[:word_length][:min]).to eq(4)
         expect(Word.analytics[:word_length][:max]).to eq(6)
-        expect(Word.analytics[:word_length][:median]).to eq(4.5)
-        expect(Word.analytics[:word_length][:average]).to eq(4.5)
+        expect(Word.analytics[:word_length][:median]).to eq(4)
+        expect(Word.analytics[:word_length][:average]).to eq(4.6)
       end
     end
   end
