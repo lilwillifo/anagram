@@ -2,7 +2,7 @@
 
 # Anagram Finder
 
-An API to find anagrams for a given set of text. Users can pass in a string to find all its anagrams in the dictionary. The search functionality does not discriminate on whether the text entered is a real word or not. So, this is a perfect way to cheat at Scrabble, if no one notices you making API calls during the game...
+An API to find anagrams for a given set of text. Users can pass in a string to find all its anagrams in the dictionary. The search functionality does not discriminate on whether the text entered is a real word or not. So, this is a great way to cheat at Scrabble, if no one notices you making API calls during the game...
 
 # Implementation details
 
@@ -34,7 +34,7 @@ I use testing to drive my implementation. I wrote RSpec tests to confirm happy p
 ## Set Up, Testing
 
 1. Run `bundle` to install the dependencies
-2. `rake db:create`, `rake db:migrate` and (optionally) `rake db:seed`. Note that seeding the entire dictionary will take a very long time. This seed file gives you the opportunity to take a well-deserved pomodoro break while it runs! It runs before users interact with the site, so end users wouldn't feel the long load time. The tests of the API functionality will work with or without the seeding. Interacting with the API will be more fun once seeded though!
+2. `rake db:create`, `rake db:migrate` and (optionally) `rake db:seed`. Note that seeding the entire dictionary will take a long time. This seed file gives you the opportunity to take a well-deserved pomodoro break while it runs! It runs before users interact with the site, so end users wouldn't feel the long load time. The tests of the API functionality will work with or without the seeding. Interacting with the API will be more fun once seeded though!
 3. `rails s` will serve up the API at `localhost:3000`. You'll need this running to make requests.
 4. `ruby test/anagram_test.rb` to run Ibotta's test suite.
 
@@ -91,4 +91,4 @@ HTTP/1.1 204 No Content
 
 # Features to add to the API
 
-I'd like to add the ability to add anagrams with multiple words. Some of my favorite anagrams are those for multiple words, like `Clint Eastwood` and `Old West Action`, `dormitory` and `dirty room`, or `the morse code` and `here come dots`. Also, although it is not quite an anagram, I found myself curious about what shorter words could be made from a string. Creating another endpoint `/sub-words/:word` to return all words created from the larger word. This could be implemented by checking combinations of the characters against the dictionary.
+I'd like to add the ability to add anagrams with multiple words. Some of my favorite anagrams are those for multiple words, like `Clint Eastwood` and `Old West Action`, `dormitory` and `dirty room`, or `the morse code` and `here come dots`. Also, although it is not quite an anagram, I found myself curious about what shorter words could be made from a string. Creating another endpoint `/sub-words/:word` to return all words created from the larger word. This could be implemented by iterating through and checking combinations of the characters against the dictionary. This would up your Scrabble game even more!
